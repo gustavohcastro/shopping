@@ -1,13 +1,27 @@
 import './App.css';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import dados from './produtos.json';
 
 function App() {
 
+  const [produtos, setProdutos] = useState([])
   const [nomes, setNomes] = useState([])
   const [precos, setPrecos] = useState([])
+  const [filtro, setFiltro] = useState('')
 
   const [nomesSelecionados, setNomesSelecionados] = useState([])
   const [precosSelecionados, setPrecosSelecionados] = useState([])
+
+  useEffect( () => {
+    setProdutos(dados.itens);
+  }, [])
+
+  function filtrar() {
+    //lembrar de colocar value para pegar o valor digitado
+    var texto = document.getElementById('pesquisa').value
+    var filtrados = dados.itens.filter( (produto) => produto.nome.includes(texto))
+    setProdutos(filtrados)
+  }
 
   function cadastrar() {
     var nome = document.getElementById('nome').value
@@ -42,34 +56,42 @@ function App() {
 
   return (
     <main>
-      {
-        nomesSelecionados.length > 0 && (
+    <div id='cabecalho'>
+      <h1>LOJINHA DO SEU ZÉ</h1>
+    </div>
+    <div id='menu'>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">PRODUTOS</a></li>
+        <li><a href="#">CONTATO</a></li>
+      </ul>
+    </div>
+    {
+      nomesSelecionados.length > 0 && (
         <div>
           <h1>Carrinho</h1>
           <p>{nomesSelecionados.length} produtos</p>
           <p>
-            {
-            precosSelecionados.reduce((acc, preco) => {
-                return acc + parseFloat(preco)
-              },0)
-            }
+            {precosSelecionados.reduce((acc, preco) => {
+              return acc + parseFloat(preco)
+            },0)
+          }
           </p>
         </div>
-        )
-      }
-      <div>
-        <input id="nome" type="text" placeholder="Nome do produto"/>
-        <input id="valor" type="number" placeholder="Valor do produto"/>
-        <button onClick={cadastrar}>Cadastrar</button>
-      </div>
-      <div>
+      )
+    }
+    <div>
+      <input type='text' id='pesquisa' placeholder='Nome do produto'/>
+      <button onClick={filtrar}>Filtrar</button>
+    </div>
+    <div>
         {
-          nomes.map( (item, index) => (
+          produtos.map( (item, index) => (
             <div key={index}>
-              <img alt="Foto do produto" width={160} src="https://idealservis.com.br/portal/wp-content/uploads/2014/07/default-placeholder.png"/>
-              <h2>{item}</h2>
-              <h4>{precos[index]}</h4>
-              <button onClick={() => comprar(item, precos[index])}>Comprar</button>
+              <img alt="Foto do produto" width={160} src={item.imagem}/>
+              <h2>{item.nome}</h2>
+              <h4>{item.preco}</h4>
+              <button onClick={() => comprar(item.nome, item.preco)}>Comprar</button>
             </div>
           ))
         }

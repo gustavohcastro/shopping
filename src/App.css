@@ -7,11 +7,9 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
   }
-}
 
 .App-header {
   background-color: #282c34;
@@ -35,4 +33,58 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#cabecalho {
+  background-color: white;
+  background-image: url(logo.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  width: 100%;
+  height: 300px;
+}
+
+#cabecalho h1 {
+  width: 588px;
+  height: 71px;
+  color: #ffffff;
+  text-align: center;
+  background-color: black;
+  float: left;
+  margin: 0 auto;
+  font-size: 50px;
+  position: relative;
+  top: 50%;
+  transform: translateX(113%);
+}
+
+#menu {
+  margin: 0 auto;
+}
+
+#menu ul {
+  padding: 0%;
+  list-style: none;
+  background-color: #61dafb;
+  height: 30px;
+  text-align: center;
+}
+
+#menu ul li {
+  display: inline-block;
+  list-style: none;
+  padding: 5px 20px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+#menu ul li a {
+  text-decoration: none;
+}
+
+#menu ul li a:hover {
+  background-color: gray;
+  color:#ffffff;
 }

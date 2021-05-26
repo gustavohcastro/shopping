@@ -1,0 +1,29 @@
+{
+    "itens" :[
+      {
+        "nome" : "boné",
+        "preco": 15,
+        "imagem" : "https://images.tcdn.com.br/img/img_prod/710966/kit_2_bone_new_era_aba_curva_3930_mlb_ny_yankees_branco_e_preto_1007_1_20191021113200.jpg"
+      },
+      {
+        "nome" : "calça",
+        "preco": 35,
+        "imagem": "https://cdn.awsli.com.br/600x450/809/809422/produto/39732279/ad657e08e6.jpg"
+      },
+      {
+        "nome" : "camiseta",
+        "preco": 10,
+        "imagem": "https://decathlonpro.vteximg.com.br/arquivos/ids/2246649-1000-1000/techfresh-50-ss-dark-grey-m1.jpg?v=636795168886300000"
+      },
+      {
+        "nome" : "cinto",
+        "preco": 20,
+        "imagem": "https://decathlonpro.vteximg.com.br/arquivos/ids/2246649-1000-1000/techfresh-50-ss-dark-grey-m1.jpg?v=636795168886300000"
+      },
+      {
+        "nome" : "moletom",
+        "preco": 56,
+        "imagem": "https://cdn.awsli.com.br/1000x1000/148/148679/produto/10408379/46fa00b9bc.jpg"
+      }
+    ]
+  }
